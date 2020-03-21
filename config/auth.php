@@ -40,6 +40,18 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'autorite'=>[
+            'driver'=>'session',
+            'provider'=>'autorites',
+        ],
+        'benevole'=>[
+            'driver'=>'session',
+            'provider'=>'benevoles',
+        ],
+        'quarantaine'=>[
+            'driver'=>'session',
+            'provider'=>'quarantaines',
+        ],
 
         'api' => [
             'driver' => 'token',
@@ -70,7 +82,18 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-
+        'benevoles' => [
+            'driver' => 'eloquent',
+            'model' => App\Benevole::class,
+        ],
+        'autorites' => [
+            'driver' => 'eloquent',
+            'model' => App\Autorite::class,
+        ],
+        'quarantaines' => [
+            'driver' => 'eloquent',
+            'model' => App\Quarantaine::class
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

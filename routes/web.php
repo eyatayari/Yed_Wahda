@@ -12,8 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+Route::get('/quarantaine', 'QuarantaineController@index');
+Route::get('/q/{id}', 'QuarantaineController@edit');
 
 Auth::routes();
 

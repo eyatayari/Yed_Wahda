@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/public/js/blog_custom.js" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/js/blog_post_custom.js" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/js/bootstrap_transition.js" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/js/contact_custom.js" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/js/custom.js" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/js/elements_custom.js" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/js/jquery-3.2.1.min.js" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/js/services_custom.js" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/plugins/OwlCarousel2-2.2.1" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/plugins/colorbox" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/plugins/easing" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/plugins/fontawesome-free-5.0.1" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/plugins/greensock" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/plugins/js-flickr-gallery-1.24" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/plugins/progressbar" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/plugins/scrollTo" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/plugins/scrollmagic" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/styles/blog_post_responsive.css" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/styles/blog_post_styles.css" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/styles/blog_responsive.css" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/styles/blog_styles.css" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/styles/bootstrap4" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/styles/contact_responsive.css" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/styles/contact_styles.css" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/styles/elements_responsive.css" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/styles/elements_styles.css" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/styles/main_styles.css" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/styles/responsive.css" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/styles/services_responsive.css" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/public/styles/services_styles.css" charset="ISO-8859-1" />
+  </component>
+</project>

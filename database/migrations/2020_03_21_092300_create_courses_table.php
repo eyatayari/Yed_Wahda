@@ -17,10 +17,10 @@ class CreateCoursesTable extends Migration
             $table->bigIncrements('id');
             $table->string('type_course');
             $table->string('description');
-            $table->date('date_demande');
+            $table->datetime('date_demande');
             $table->string('etat');
             $table->integer('id_quarantaine')->unsigned();
-            $table->integer('id_benevole')->unsigned();
+            $table->integer('id_benevole')->unsigned()->nullable();
 
             $table->timestamps();
         });

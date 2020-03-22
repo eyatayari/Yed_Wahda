@@ -19,8 +19,8 @@ class CreateBenevolesTable extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->string('cite');
-            $table->string('ville');
-            $table->string('num_telephone');
+            $table->string('villeb');
+            $table->integer('num_telephone');
             $table->string('sexe');
             $table->timestamps();
         });

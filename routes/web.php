@@ -23,7 +23,7 @@ Auth::routes();
 
 Route::get('/register', 'Auth\RegisterController@showRegisterForm')->name('register');
 Route::post('/registerQuarantaine', 'Auth\RegisterController@createQuarantaine')->name('createQuarantaine');
-Route::post('/registerbenevole', 'Auth\RegisterController@createbenevole')->name('createbenevole');
+Route::post('/registerBenevole', 'Auth\RegisterController@createBenevole')->name('createBenevole');
 
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('Login');
 
@@ -32,3 +32,4 @@ Route::post('/login/eya','Auth\LoginController@LoginVerification')->name('LoginV
 Route::group(['middleware' => ['auth']], function () {*/
     Route::get('login/benevole', 'BenevoleController@showDashboard')->name('BenevoleshowDashboard');
 /*});*/
+Route::get('/', 'HomeController@index')->name('eya');

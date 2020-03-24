@@ -27,35 +27,34 @@
                     <form action="{{route('createQuarantaine')}}" method="post">
                         @csrf
                         <div class="row register-form">
-
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="prenom" placeholder="إسمك" value=""
-                                                                                                                                                                                            />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="cin" placeholder="رقم بطاقة التعريف" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" name="email" placeholder="البريد الإلكتروني" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control"  name="ville" placeholder="المدينة" value="" />
-                            </div>
-                            <div class="form-group">
-                                <div class="maxl">
-                                    <label class="radio inline">
-                                        <input type="radio" name="sexe" value="male" checked>
-                                        <span> رجل </span>
-                                    </label>
-                                    <label class="radio inline">
-                                        <input type="radio" name="sexe" value="female">
-                                        <span>امرأة </span>
-                                    </label>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="prenom" placeholder="إسمك" value=""
+                                                                                                                                                                                                />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="cin" placeholder="رقم بطاقة التعريف" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="email" placeholder="البريد الإلكتروني" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control"  name="ville" placeholder="المدينة" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <div class="maxl">
+                                        <label class="radio inline">
+                                            <input type="radio" name="sexe" value="male" checked>
+                                            <span> رجل </span>
+                                        </label>
+                                        <label class="radio inline">
+                                            <input type="radio" name="sexe" value="female">
+                                            <span>امرأة </span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
+                            <div class="col-md-6">
                             <div class="form-group">
                                 <input type="text" class="form-control" name="nom" placeholder="لقبك" value="" />
                             </div>
@@ -71,15 +70,14 @@
                             </div>
                             <input type="submit" class="btnRegister"  value="قيد"/>
                         </div>
-                    </div>
+                        </div>
                     </form>
                 </div>
                 <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <h3  class="register-heading">قيد معانا كمتطوع</h3>
-                    <form method="post" action="{{route('createbenevole')}}">
+                    <form method="post" action="{{route('createBenevole')}}">
                         @csrf
                         <div class="row register-form">
-
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="prenom" placeholder="إسمك" value="{{old('prenom')}}" />
@@ -116,9 +114,7 @@
                                 <div class="form-group">
                                     <input type="password" class="form-control" name="password" placeholder="كلمة السر" value="" />
                                 </div>
-
                                 <div class="form-group">
-
                                     <input type="text" class="form-control" name="cite" placeholder="حيك " value="" />
                                 </div>
                                 <input type="submit" class="btnRegister"  value="قيد"/>
@@ -129,6 +125,5 @@
             </div>
         </div>
     </div>
-
 </div>
     @endsection

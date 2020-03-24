@@ -18,10 +18,12 @@ class CreateQuarantainesTable extends Migration
             $table->string('cin');
             $table->string('nom');
             $table->string('prenom');
+            $table->string('email');
+            $table->string('password');
             $table->string('ville');
-            $table->date('date_naissance');
+            $table->string('cite');
             $table->string('sexe');
-            $table->string('num_tel');
+            $table->string('num_telephone');
             $table->timestamps();
         });
     }

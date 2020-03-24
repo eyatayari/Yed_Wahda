@@ -17,6 +17,8 @@ class CreateAutoritesTable extends Migration
             $table->Increments('id');
             $table->string('cin');
             $table->string('nom');
+            $table->string('email');
+            $table->string('password');
             $table->string('prenom');
             $table->string('sexe');
             $table->timestamps();

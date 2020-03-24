@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/Http/Middleware/CheckAuthLogged.php" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/public/js/blog_custom.js" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/public/js/blog_post_custom.js" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/public/js/bootstrap_transition.js" charset="ISO-8859-1" />

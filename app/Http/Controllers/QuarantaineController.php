@@ -17,15 +17,15 @@ class QuarantaineController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-
-        //
-    }
-    public function store(Request $request)
-    {
-        //
-    }
+//    public function create()
+//    {
+//
+//        //
+//    }
+//    public function store(Request $request)
+//    {
+//        //
+//    }
     public function edit($id)
     {
         $quarantaine = Quarantaine::find($id);
@@ -60,8 +60,6 @@ class QuarantaineController extends Controller
         Quarantaine::find($id)->delete();
         return redirect()->back()->with('successMsg','Quarantaine Successfully Delete');
     }
-
-
 
 
 }

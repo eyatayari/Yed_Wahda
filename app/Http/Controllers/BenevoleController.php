@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Benevole;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BenevoleController extends Controller
 {

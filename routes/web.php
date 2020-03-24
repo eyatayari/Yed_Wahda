@@ -11,16 +11,24 @@
 |
 */
 
-
+Route::get('/home', function () {
+    return view('index');
+})->name('home');
 Route::get('/quarantaine', 'QuarantaineController@index');
-Route::get('/q/{id}', 'QuarantaineController@edit');
-
+Route::get('/q/{id}', 'QuarantaineController@edit')->name('quarantaine.edit');
+Route::delete('/q1/{id}', 'QuarantaineController@destroy')->name('quarantaine.destroy');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/afficheBenevole', 'BenevoleController@index')->name('afficheBenevole');
-Route::get('/', 'DemandeCourseController@create')->name('demandecourse');
-Route::get('/confirmé/{id}', 'DemandeCourseController@confirmé')->name('confirmé');
-Route::post('/storecourse', 'DemandeCourseController@store')->name('storecourse');
-Route::get('/demandecoursenonconfirmé', 'DemandeCourseController@indexnonconfirmé')->name('demandecoursenonconfirmé');
-Route::get('/demandecourseconfirmé', 'DemandeCourseController@indexconfirmé')->name('demandecourseconfirmé');
+//Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/register', 'Auth\RegisterController@showRegisterForm')->name('register');
+Route::post('/registerQuarantaine', 'Auth\RegisterController@createQuarantaine')->name('createQuarantaine');
+Route::post('/registerbenevole', 'Auth\RegisterController@createbenevole')->name('createbenevole');
+
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('Login');
+
+Route::post('/login/eya','Auth\LoginController@LoginVerification')->name('LoginVerification');
+/*
+Route::group(['middleware' => ['auth']], function () {*/
+    Route::get('login/benevole', 'BenevoleController@showDashboard')->name('BenevoleshowDashboard');
+/*});*/

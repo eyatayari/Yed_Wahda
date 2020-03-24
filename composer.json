@@ -44,7 +44,12 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        }
+        },
+        "files": [
+
+            "app/helper.php"
+
+        ]
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -60,4 +65,5 @@
             "@php artisan key:generate --ansi"
         ]
     }
+
 }

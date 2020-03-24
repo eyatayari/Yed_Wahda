@@ -67,6 +67,7 @@ class RegisterController extends Controller
             'cite' => ['required', 'string'],
             'ville' => ['required', 'string'],
             'sexe' => ['required', 'string'],
+            'isdoctor' => [ 'string'],
             'num_telephone' => ['required', 'string','min:8','max:12']
         ]);
     }
@@ -91,6 +92,7 @@ class RegisterController extends Controller
             $benevole->sexe = $request['sexe'];
             $benevole->num_telephone = $request['num_telephone'];
             $benevole->email = $request['email'];
+        $benevole->isdoctor= $request['isdoctor'];
             $benevole->password = Hash::make($request['password']);
 
             $benevole->save();

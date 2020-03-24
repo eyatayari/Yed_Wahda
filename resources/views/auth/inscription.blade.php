@@ -117,6 +117,18 @@
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="cite" placeholder="حيك " value="" />
                                 </div>
+                                <div class="form-group">
+                                    <div class="maxl">
+                                        <label class="radio inline">إنت طبيب؟<br/>
+                                            <input type="radio" name="isdoctor" value="true" >
+                                            <span> أي </span>
+                                        </label>
+                                        <label class="radio inline">
+                                            <input type="radio" name="isdoctor" value="false">
+                                            <span>لا </span>
+                                        </label>
+                                    </div>
+                                </div>
                                 <input type="submit" class="btnRegister"  value="قيد"/>
                             </div>
                         </div>

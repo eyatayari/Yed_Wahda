@@ -404,7 +404,7 @@
 
         </div>
     </div>
-
+   
     <!-- Contact -->
 
     <div class="contact prlx_parent" id="contact">
@@ -476,6 +476,62 @@
         </div>
     </div>
 
+    <br><br>
+
+     <!--Element -->
+     <div class="contact prlx_parent" id="element">
+        <!-- <div class="contact_background parallax-window" data-parallax="scroll" data-speed="0.7" data-image-src="images/contact_background.jpg"></div> -->
+        <div class="contact_background prlx" style="background-image: url(images/contact_background.jpg);"></div>
+        <div class="contact_shapes"><img src="images/contact_shape.png" alt=""></div>
+        <div class="contact_content">
+
+                <div class="container">
 
 
+
+                <div class="row">
+                    <div class=" arabic col-lg-6 offset-lg-3 text-center section_title ">
+                        <h2>بش  نعاونوك</h2>
+                    </div>
+                </div>
+                    <div class="row">
+
+            <div class="col-lg-8">
+                <div class="contact_main_content">
+
+                    <div class="contact_subtitle"></div>
+
+                    <!-- Contact Us Form -->
+                    <div class="contact_form_container">
+                        <form id="reply_form" method="POST"  action="{{route('storecourse')}}" onsubmit="return checkForm(this);">
+                        {{ csrf_field() }}
+                            <div>
+                              
+                            <div class="form-group">
+                      
+                      <label class="label"><b> شناوا تستحق / quelles sont  vos besoins : </b></label>
+                      <div class="group">
+  <input type="checkbox" value="médicaments"  id="médicaments" class="input_field"  name='type_course[]'> <label for="médicaments">ادوية /  médicaments</label><br>
+  <input type="checkbox" value="nourriture" id="nourriture" name='type_course[]' > <label for="nourriture">طعام  /  nourriture</label><br>
+  <input type="checkbox" value="besoins pour la maison" id="des besoins pour la maison" name='type_course[]'> <label for="des besoins pour la maison">احتياجات منزلية  /  des besoins de la maison :</label><br>
+  <input type="checkbox" value="matériaux de stérilisation" id="matériaux de stérilisation" name='type_course[]'> <label for="matériaux de stérilisation">  مواد تعقيم/ des matériaux de stérilisation :</label><br>
+  <input type="checkbox" value="autre" id="autre" name='type_course[]'> <label for="autre">حاجه اخرى  / autre</label><br> 
+ 
+</div>
+                    
+                   </div>
+                                <textarea id="contact_form_message" class="text_field contact_form_message" name="description"  placeholder="المحتوى" rows="4" required data-error="Please, write us a message."></textarea>
+                            </div>
+                            <div>
+                                <button id="contact_form_submit" type="submit" class="arabic contact_submit_btn trans_300" value="Submit">
+                                    ابعث<img src="images/arrow_right.svg" alt="">
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        
 @endsection

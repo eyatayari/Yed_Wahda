@@ -72,7 +72,7 @@ class DemandeCourseController extends Controller
        
       
        
-        return view("/course/demandecourse");
+        return view("index");
      
       
     }
@@ -87,7 +87,8 @@ class DemandeCourseController extends Controller
     {
        
         $data =new course;
-        $data->type_course=$request->type_course;
+        $type_course = implode(",", $request->type_course);
+        $data->type_course=$type_course;
         
        
 
@@ -96,6 +97,8 @@ class DemandeCourseController extends Controller
         $data->id_quarantaine =1;
        
         $data->date_demande = date('Y/m/d H:m:s');
+       
+     
        
      
         
@@ -108,7 +111,7 @@ class DemandeCourseController extends Controller
 
 
         $data->save();
-            return redirect("/demandecourse");
+            return redirect("demandecoursenonconfirmé");
       
        
       

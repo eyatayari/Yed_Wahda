@@ -13,7 +13,7 @@
         <ul class="nav_items">
             <li class="active arabic" lang="ar" ><a href="#" >الرئيسية</a></li>
             <li class="arabic"><a href="services.html">طلب خروج</a></li>
-            <li><a href="elements.html">بش تطلب قضيتك لدار</a></li>
+            <li><a href="#element">بش تطلب قضيتك لدار</a></li>
             <li><a href="blog.html"><span>blog</span></a></li>
             <li class="arabic"><a href="#contact"><span>إتصل بنا</span></a></li>
 
@@ -46,7 +46,7 @@
         <ul class="fs_menu_list">
             <li><a href="#"><span><span>H</span>الرئيسية</span></a></li>
             <li><a href="#"><span><span>S</span>طلب خروج</span></a></li>
-            <li><a href="#"><span><span>E</span>Elements</span></a></li>
+            <li><a href="#element"><span><span>E</span>Elements</span></a></li>
             <li><a href="#"><span><span>B</span>Blog</span></a></li>
             <li><a href="#Contact"><span><span>C</span>إتصل بنا</span></a></li>
         </ul>

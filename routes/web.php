@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+
 Route::get('/quarantaine', 'QuarantaineController@index');
 Route::get('/q/{id}', 'QuarantaineController@edit');
 
@@ -21,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/afficheBenevole', 'BenevoleController@index')->name('afficheBenevole');
-Route::get('/demandecourse', 'DemandeCourseController@create')->name('demandecourse');
+Route::get('/', 'DemandeCourseController@create')->name('demandecourse');
 Route::get('/confirmé/{id}', 'DemandeCourseController@confirmé')->name('confirmé');
 Route::post('/storecourse', 'DemandeCourseController@store')->name('storecourse');
 Route::get('/demandecoursenonconfirmé', 'DemandeCourseController@indexnonconfirmé')->name('demandecoursenonconfirmé');

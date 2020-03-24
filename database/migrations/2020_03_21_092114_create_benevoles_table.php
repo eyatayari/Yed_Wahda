@@ -22,7 +22,7 @@ class CreateBenevolesTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('ville');
-            $table->string('num_telephone');
+            $table->integer('num_telephone');
             $table->string('sexe');
             $table->timestamps();
         });

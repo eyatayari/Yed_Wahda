@@ -31,4 +31,11 @@ Route::post('/login/eya','Auth\LoginController@LoginVerification')->name('LoginV
 /*
 Route::group(['middleware' => ['auth']], function () {*/
     Route::get('login/benevole', 'BenevoleController@showDashboard')->name('BenevoleshowDashboard');
+
 /*});*/
+Route::get('/afficheBenevole', 'BenevoleController@index')->name('afficheBenevole');
+
+Route::get('/confirmé/{id}', 'DemandeCourseController@confirmé')->name('confirmé');
+Route::post('/storecourse', 'DemandeCourseController@store')->name('storecourse');
+Route::get('/demandecoursenonconfirmé', 'DemandeCourseController@indexnonconfirmé')->name('demandecoursenonconfirmé');
+Route::get('/demandecourseconfirmé', 'DemandeCourseController@indexconfirmé')->name('demandecourseconfirmé');

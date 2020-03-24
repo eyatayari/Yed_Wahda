@@ -22,7 +22,9 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        return view('home');
+    {$path = 'C:\xampp\htdocs\StandForTunisia\public\js\coronavirus.politologue.com-data-2020-03-24.json';
+        $content =json_decode(file_get_contents($path),true);
+
+        return view('home',compact('content'));
     }
 }

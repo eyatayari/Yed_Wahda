@@ -42,6 +42,7 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
+
     public function showRegisterForm()
     {
         return view('auth.inscription');
@@ -56,7 +57,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+
+
             'email' => ['required', 'string', 'email', 'max:255', 'unique:benevoles'],
             'password' => ['required', 'string', 'min:8'],
             'nom' => ['required', 'string'],
@@ -75,12 +77,13 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function createBenevole(Request $request)
+    public function createBenevole(Request $request)
     {
-      $this->validator($request->all())->validate();
+//        $this->validator($request->all())->validate();
         $benevole = new Benevole();
 //        $benevole = Benevole::create([
-            $benevole->nom = $request['nom'];
+
+        $benevole->nom = $request['nom'];
             $benevole->prenom = $request['prenom'];
             $benevole->cin = $request['cin'];
             $benevole->cite = $request['cite'];
@@ -92,15 +95,13 @@ class RegisterController extends Controller
 
             $benevole->save();
 
-
+//            dd($benevole);
         //]);
         return redirect('/login');
     }
 
-    protected function createQuarantaine(Request $request)
+    public function createQuarantaine(Request $request)
     {
-
-
 //        $this->validator($request->all())->validate();
         $benevole = Quarantaine::create([
             'nom' => $request['nom'],

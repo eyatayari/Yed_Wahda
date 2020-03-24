@@ -59,8 +59,8 @@ class LoginController extends Controller
             }
 
         if (Auth::guard('quarantaine')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-    dd(Auth::guard('quarantaine')->user());
-            return redirect()->intended('/quarantaine');
+
+            return redirect()->route('QuarantaineShowDashboard');
         }
 
         if (Auth::guard('autorite')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {

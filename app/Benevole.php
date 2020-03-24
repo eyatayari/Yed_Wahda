@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Benevole extends Authenticatable
 {
    protected $guard = 'benevole';
-    protected $fillable = ['nom','prenom','ville','cin','sexe','cite','num_telephone', 'email', 'password'];
+    protected $fillable = ['nom','prenom','ville','cin','sexe','cite','num_telephone', 'email', 'password','isdoctor'];
 
     public function course(){
         $this->hasMany(course::class);

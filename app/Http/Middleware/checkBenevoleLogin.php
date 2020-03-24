@@ -16,10 +16,9 @@ class checkBenevoleLogin
      */
     public function handle($request, Closure $next)
     {
-        if(isset(Auth::guard('benevole')->user())){
-            
+        if(Auth::guard('benevole')->user()){
+            return $next($request);
         }
-
-        return $next($request);
+else return redirect(route('Login'));
     }
 }

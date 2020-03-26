@@ -11,6 +11,22 @@
 |
 */
 
+//Routes Benevoles
+
+Route::group(['Middleware' => ['auth','BenevolePermission']], function () {
+    Route::get('login/benevole', 'BenevoleController@showDashboard')->name('BenevoleshowDashboard');
+    Route::get('/logout','Auth\LoginController@Logout')->name('logout');
+});
+
+
+//Routes Quarantaines
+Route::group(['Middleware' => ['auth','QuarantainePermission']], function () {
+    route::post('/','DemandeCourseController@store')->name('storecourse');
+    Route::get('/DashboardQuarantaine', 'QuarantaineController@QuarantaineShowDashboard')->name('QuarantaineShowDashboard');
+
+});
+
+
 Route::get('/home', function () {
     return view('index');
 })->name('home');
@@ -28,9 +44,14 @@ Route::post('/registerBenevole', 'Auth\RegisterController@createBenevole')->name
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('Login');
 
 Route::post('/login/','Auth\LoginController@LoginVerification')->name('LoginVerification');
-/*
-Route::group(['middleware' => ['auth']], function () {*/
-    Route::get('login/benevole', 'BenevoleController@showDashboard')->name('BenevoleshowDashboard');
-/*});*/
-Route::get('/', 'HomeController@index')->name('eya');
-Route::get('/DashboardQuarantaine', 'QuarantaineController@QuarantaineShowDashboard')->name('QuarantaineShowDashboard');
+
+//Route::get('/', 'HomeController@index')->name('eya');
+
+    Route::get('/', 'HomeController@index')->name('home');
+
+
+
+
+Route::get('dynamic_dependent/fetch/{id}', 'Auth\RegisterController@myformAjax')->name('dynamicdependent.fetch');
+
+

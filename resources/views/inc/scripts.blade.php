@@ -1,3 +1,5 @@
+
+<script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
 <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
 <script src="{{asset('styles/bootstrap4/popper.js')}}"></script>
 <script src="{{asset('styles/bootstrap4/bootstrap.min.js')}}"></script>
@@ -103,3 +105,35 @@ label:hover:before {
 	return destSel;
 }
            </script>
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('select[name="gouvernorat"]').on('change', function() {
+            var stateID = $(this).val();
+            if(stateID) {
+                $.ajax({
+                    url:'dynamic_dependent/fetch/'+stateID ,
+                    type: "GET",
+                    dataType: "json",
+                    success:function(data) {
+
+
+                        $('select[name="municipalite"]').empty();
+                        $.each(data, function(key, value) {
+
+                            console.log(value);
+                            $('select[name="municipalite"]').append('<option value="'+ value.id +'">'+ value.nom_municipalite +'</option>');
+                        });
+
+
+                    }
+                });
+            }else{
+                $('select[name="municipalite"]').empty();
+            }
+        });
+    });
+</script>

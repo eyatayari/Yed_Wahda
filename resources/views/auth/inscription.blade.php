@@ -38,8 +38,14 @@
                                 <div class="form-group">
                                     <input type="email" class="form-control" name="email" placeholder="البريد الإلكتروني" />
                                 </div>
+
                                 <div class="form-group">
-                                    <input type="text" class="form-control"  name="ville" placeholder="المدينة" value="" />
+                                    <select  class="form-control" >
+                                        <option value="">---الولاية---</option>
+                                        @foreach ($gouvernorat_list as $gouvernorat)
+                                            <option value="{{ $gouvernorat->id }}" name="gouvernorat" >{{ $gouvernorat->nom_gouvernorat }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <div class="maxl">
@@ -53,6 +59,7 @@
                                         </label>
                                     </div>
                                 </div>
+
                             </div>
                             <div class="col-md-6">
                             <div class="form-group">
@@ -64,10 +71,12 @@
                             <div class="form-group">
                                 <input type="password" class="form-control" name="password" placeholder="كلمة السر" value="" />
                             </div>
-                            <div class="form-group">
+                                <div class="form-group">
 
-                                <input type="text" class="form-control" name="cite" placeholder="حيك " value="" />
-                            </div>
+                                    <select name="municipalite" class="form-control" >
+                                        <option value="">---البلدية---</option>
+                                    </select>
+                                </div>
                             <input type="submit" class="btnRegister"  value="قيد"/>
                         </div>
                         </div>
@@ -77,19 +86,27 @@
                     <h3  class="register-heading">قيد معانا كمتطوع</h3>
                     <form method="post" action="{{route('createBenevole')}}">
                         @csrf
+
                         <div class="row register-form">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="prenom" placeholder="إسمك" value="{{old('prenom')}}" />
+                                    <input type="text" class="form-control" name="prenom" placeholder="إسمك" value=""
+                                    />
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="cin" placeholder="رقم بطاقة التعريف" value="{{old('cin')}}" />
+                                    <input type="text" class="form-control" name="cin" placeholder="رقم بطاقة التعريف" value="" />
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control" name="email" placeholder="البريد الإلكتروني" value="{{old('email')}}" />
+                                    <input type="email" class="form-control" name="email" placeholder="البريد الإلكتروني" />
                                 </div>
+
                                 <div class="form-group">
-                                    <input type="text" class="form-control"  name="ville" placeholder="المدينة" value="{{old('ville')}}" />
+                                    <select name="gouvernorat" class="form-control" >
+                                        <option value="">---الولاية---</option>
+                                        @foreach ($gouvernorat_list as $gouvernorat)
+                                            <option value="{{ $gouvernorat->id }}">{{ $gouvernorat->nom_gouvernorat }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <div class="maxl">
@@ -103,31 +120,23 @@
                                         </label>
                                     </div>
                                 </div>
+
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="nom" placeholder="لقبك" value="{{old('nom')}}" />
+                                    <input type="text" class="form-control" name="nom" placeholder="لقبك" value="" />
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" minlength="8" maxlength="12" name="num_telephone" class="form-control" placeholder="رقم الهاتف" value="{{old('num_telephone')}}" />
+                                    <input type="text" minlength="8" maxlength="12" name="num_telephone" class="form-control" placeholder="رقم الهاتف" value="" />
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control" name="password" placeholder="كلمة السر" value="" />
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="cite" placeholder="حيك " value="" />
-                                </div>
-                                <div class="form-group">
-                                    <div class="maxl">
-                                        <label class="radio inline">إنت طبيب؟<br/>
-                                            <input type="radio" name="isdoctor" value="true" >
-                                            <span> أي </span>
-                                        </label>
-                                        <label class="radio inline">
-                                            <input type="radio" name="isdoctor" value="false">
-                                            <span>لا </span>
-                                        </label>
-                                    </div>
+
+                                    <select name="municipalite" class="form-control" >
+                                        <option value="">---البلدية---</option>
+                                    </select>
                                 </div>
                                 <input type="submit" class="btnRegister"  value="قيد"/>
                             </div>
@@ -139,3 +148,4 @@
     </div>
 </div>
     @endsection
+

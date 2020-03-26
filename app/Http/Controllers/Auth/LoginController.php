@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -69,5 +70,19 @@ class LoginController extends Controller
         }
             return back()->withInput($request->only('email', 'remember'));
 
+    }
+
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Exception
+     */
+    public function Logout(){
+
+       Auth::logout();
+        Session::flush();
+
+
+        return redirect(route('Login'));
     }
 }

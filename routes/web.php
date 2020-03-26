@@ -53,14 +53,17 @@ Route::get('/afficheBenevole', 'BenevoleController@index')->name('afficheBenevol
 
 Route::get('/confirmé/{id}', 'DemandeCourseController@confirmé')->name('confirmé');
 Route::post('/storecourse', 'DemandeCourseController@store')->name('storecourse');
-Route::get('/demandecoursenonconfirmé', 'DemandeCourseController@indexnonconfirmé')->name('demandecoursenonconfirmé');
-Route::get('/demandecourseconfirmé', 'DemandeCourseController@indexconfirmé')->name('demandecourseconfirmé');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::post('/login/','Auth\LoginController@LoginVerification')->name('LoginVerification');
 
 //Route::get('/', 'HomeController@index')->name('eya');
 
     Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/', 'DemandeCourseController@create')->name('demandecourse');
+Route::get('/confirme/{id}/{idb}', 'DemandeCourseController@confirme')->name('confirme');
+Route::post('/storecourse', 'DemandeCourseController@store')->name('storecourse');
+
 
 
 

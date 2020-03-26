@@ -14,45 +14,13 @@ class DemandeCourseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function indexconfirmé()
-    {
-        $c = DB::table('courses')
-        ->join('quarantaines', 'courses.id_quarantaine', '=', 'quarantaines.id')
-     
-      ->select('courses.id','courses.date_demande','courses.description','courses.type_course','courses.etat','quarantaines.nom','quarantaines.ville','quarantaines.prenom','quarantaines.date_naissance')
-        ->get();
-       
-       
-     
-     
-       
-        return view("/course/affichedemandecourseconfirmé",compact('c'));
-       
-    }
-    public function indexnonconfirmé()
-    {
-        $c = DB::table('courses')
-        ->join('quarantaines', 'courses.id_quarantaine', '=', 'quarantaines.id')
-        ->select('courses.id','courses.date_demande','courses.description','courses.type_course','quarantaines.nom','courses.etat','quarantaines.prenom','quarantaines.ville','quarantaines.date_naissance')
-      
-        ->get();
-        $d = DB::table('courses')
-        ->where('courses.etat','=',"n'est pas confirmé")
-        ->select('courses.etat')
-          ->get();
-         $k=count($d);
-         
-       
-        return view("/course/affichedemandedecoursenonconfirmé",compact('c','k'));
-       
-    }
-
+   
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function confirmé(Request $request, $id)
+    public function confirme(Request $request, $id,$idb)
     {
           
        
@@ -60,13 +28,12 @@ class DemandeCourseController extends Controller
        
         $c=course::findOrFail($id);
         $c->etat="confirmé";
-       
+        $c->id_benevole=$idb;
         $c->save();
-        return redirect()->route('demandecoursenonconfirmé');
+        return redirect()->route('BenevoleshowDashboard');
      
       
     }
-
 
     public function create(Request $request)
     {
@@ -98,7 +65,7 @@ class DemandeCourseController extends Controller
         $data->etat ="non confirmé";
         $data->id_quarantaine =Auth::guard('quarantaine')->user()->id;
         
-        $data->date_demande = now()->format('\'Y/m/d H:m:s\'');
+        $data->date_demande = now()->format('Y/m/d H:m:s');
 
      
        
@@ -113,7 +80,7 @@ class DemandeCourseController extends Controller
 
 
         $data->save();
-            return redirect("demandecoursenonconfirmé");
+            return redirect(route('home'));
       
        
       
@@ -121,48 +88,4 @@ class DemandeCourseController extends Controller
       
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-      
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-      
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-      
-    }
 }

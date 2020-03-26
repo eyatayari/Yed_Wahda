@@ -19,7 +19,7 @@ class BenevoleSeeder extends Seeder
             'ville'=>'zaghouwan',
             'num_telephone'=>21564875,
             'sexe'=>'femme',
-            'isdoctor'=>true,
+            'isdoctor'=>'true',
             'email'=>"jihen@ch.fr",
             'password' => bcrypt('12345678')
     ]);

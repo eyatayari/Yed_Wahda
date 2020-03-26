@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+use Illuminate\Support\Facades\Session;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -28,6 +29,7 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
+   
 
     /**
      * Create a new controller instance.
@@ -70,4 +72,8 @@ class LoginController extends Controller
             return back()->withInput($request->only('email', 'remember'));
 
     }
+    public function logout(Request $request) {
+        Session::flush();
+        return redirect('login')->with('alert','Kamu sudah logout');
+      }
 }

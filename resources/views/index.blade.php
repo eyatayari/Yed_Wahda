@@ -357,7 +357,7 @@
      <!--Element -->
      <div class="contact prlx_parent" id="element">
         <!-- <div class="contact_background parallax-window" data-parallax="scroll" data-speed="0.7" data-image-src="images/contact_background.jpg"></div> -->
-        <div class="contact_background prlx" style="background-image: url(images/contact_background.jpg);"></div>
+        <div class="contact_background prlx" style=""></div>
         <div class="contact_shapes"><img src="images/contact_shape.png" alt=""></div>
         <div class="contact_content">
 

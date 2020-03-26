@@ -28,9 +28,14 @@ Route::post('/registerBenevole', 'Auth\RegisterController@createBenevole')->name
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('Login');
 
 Route::post('/login/','Auth\LoginController@LoginVerification')->name('LoginVerification');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 /*
 Route::group(['middleware' => ['auth']], function () {*/
     Route::get('login/benevole', 'BenevoleController@showDashboard')->name('BenevoleshowDashboard');
 /*});*/
 Route::get('/', 'HomeController@index')->name('eya');
 Route::get('/DashboardQuarantaine', 'QuarantaineController@QuarantaineShowDashboard')->name('QuarantaineShowDashboard');
+
+Route::get('/', 'DemandeCourseController@create')->name('demandecourse');
+Route::get('/confirme/{id}/{idb}', 'DemandeCourseController@confirme')->name('confirme');
+Route::post('/storecourse', 'DemandeCourseController@store')->name('storecourse');

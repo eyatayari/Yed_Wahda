@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 use App\Benevole;
-
+use App\course;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 
 class BenevoleController extends Controller
 {
@@ -13,11 +16,25 @@ class BenevoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function showDashboard()
+    public function showDashboard(Request $request)
     {
-        $b=Benevole::all();
-       
-        return view("/benevole/afficheBenevole",compact('b'));
+    
+        $c = DB::table('courses')
+        ->join('quarantaines', 'courses.id_quarantaine', '=', 'quarantaines.id')
+        ->select('courses.id','courses.date_demande','courses.description','courses.type_course','quarantaines.nom','courses.etat','quarantaines.prenom','quarantaines.ville','quarantaines.cite','quarantaines.num_telephone')
+      
+        ->get();
+        $m = DB::table('courses')
+        ->join('quarantaines', 'courses.id_quarantaine', '=', 'quarantaines.id')
+        ->select('courses.id','courses.date_demande','courses.description','courses.type_course','quarantaines.nom','courses.etat','courses.id_benevole','quarantaines.prenom','quarantaines.ville','quarantaines.cite','quarantaines.num_telephone')
+      
+        ->get();
+        $d = DB::table('courses')
+        ->where('courses.etat','=',"n'est pas confirmé")
+        ->select('courses.etat')
+          ->get();
+         $k=count($d);
+        return view("/benevole/dashboard",compact('c','k','m'));
        
     }
 

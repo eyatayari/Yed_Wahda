@@ -13,7 +13,7 @@
         <span class="nav_items">
             <li class="active arabic" lang="ar" ><a href="{{route('home')}}" >الرئيسية</a></li>
             <li class="arabic"><a href="{{route('home')}}#autorisationsortie">طلب خروج</a></li>
-            <li><a href="{{route('home')}}#demandecourse">بش تطلب قضيتك لدار</a></li>
+            <li><a href="{{route('home')}}#element">بش تطلب قضيتك لدار</a></li>
 
             <li class="arabic"><a href="#contact"><span>إتصل بنا</span></a></li>
 

@@ -43,6 +43,19 @@ Route::post('/registerBenevole', 'Auth\RegisterController@createBenevole')->name
 
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('Login');
 
+Route::post('/login/eya','Auth\LoginController@LoginVerification')->name('LoginVerification');
+/*
+Route::group(['middleware' => ['auth']], function () {*/
+    Route::get('login/benevole', 'BenevoleController@showDashboard')->name('BenevoleshowDashboard');
+
+/*});*/
+Route::get('/afficheBenevole', 'BenevoleController@index')->name('afficheBenevole');
+
+Route::get('/confirmé/{id}', 'DemandeCourseController@confirmé')->name('confirmé');
+Route::post('/storecourse', 'DemandeCourseController@store')->name('storecourse');
+Route::get('/demandecoursenonconfirmé', 'DemandeCourseController@indexnonconfirmé')->name('demandecoursenonconfirmé');
+Route::get('/demandecourseconfirmé', 'DemandeCourseController@indexconfirmé')->name('demandecourseconfirmé');
+
 Route::post('/login/','Auth\LoginController@LoginVerification')->name('LoginVerification');
 
 //Route::get('/', 'HomeController@index')->name('eya');
@@ -53,5 +66,6 @@ Route::post('/login/','Auth\LoginController@LoginVerification')->name('LoginVeri
 
 
 Route::get('dynamic_dependent/fetch/{id}', 'Auth\RegisterController@myformAjax')->name('dynamicdependent.fetch');
+
 
 

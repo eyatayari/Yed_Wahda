@@ -7,6 +7,7 @@ use App\Quarantaine;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -43,10 +44,25 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+
     public function showRegisterForm()
-    {
-        return view('auth.inscription');
+    { $country_list = DB::table('gouvernorats')
+
+        ->get();
+
+        return view('auth.inscription')->with('gouvernorat_list', $country_list);
     }
+
+    public function myformAjax($id)
+    {
+        $cities = DB::table("municipalites")
+            ->where("gouvernorat_id",$id)
+            ->get();
+        return json_decode($cities);
+    }
+
+
+
 
     /**
      * Get a validator for an incoming registration request.
@@ -64,8 +80,8 @@ class RegisterController extends Controller
             'nom' => ['required', 'string'],
             'prenom' => ['required', 'string'],
             'cin' => ['required', 'string','min:8','max:8'],
-            'cite' => ['required', 'string'],
-            'ville' => ['required', 'string'],
+            'gouvernorat' => ['required', 'string'],
+            'municipalite' => ['required', 'string'],
             'sexe' => ['required', 'string'],
             'isdoctor' => [ 'string'],
             'num_telephone' => ['required', 'string','min:8','max:12']
@@ -87,8 +103,8 @@ class RegisterController extends Controller
         $benevole->nom = $request['nom'];
             $benevole->prenom = $request['prenom'];
             $benevole->cin = $request['cin'];
-            $benevole->cite = $request['cite'];
-            $benevole->ville = $request['ville'];
+            $benevole->municipalite = $request['municipalite'];
+            $benevole->gouvernorat = $request['gouvernorat'];
             $benevole->sexe = $request['sexe'];
             $benevole->num_telephone = $request['num_telephone'];
             $benevole->email = $request['email'];
@@ -109,8 +125,8 @@ class RegisterController extends Controller
             'nom' => $request['nom'],
             'prenom' => $request['prenom'],
             'cin' => $request['cin'],
-            'cite' => $request['cite'],
-            'ville' => $request['ville'],
+            'municipalite' => $request['municipalite'],
+            'gouvernorat' => $request['gouvernorat'],
             'sexe' => $request['sexe'],
             'num_telephone' => $request['num_telephone'],
             'email' => $request['email'],

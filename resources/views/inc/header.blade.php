@@ -10,7 +10,7 @@
 
     <!-- Main Navigation -->
     <nav class="main_nav justify-self-end">
-        <ul class="nav_items">
+        <span class="nav_items">
             <li class="active arabic" lang="ar" ><a href="{{route('home')}}" >الرئيسية</a></li>
             <li class="arabic"><a href="{{route('home')}}#autorisationsortie">طلب خروج</a></li>
             <li><a href="{{route('home')}}#demandecourse">بش تطلب قضيتك لدار</a></li>
@@ -18,30 +18,44 @@
             <li class="arabic"><a href="#contact"><span>إتصل بنا</span></a></li>
 
 
-            @if (checkAuthUser()!=null)
+            {{--@if (checkAuthUser()!=null)--}}
 
                 <span class="nav-item social-icons">
                 <span class="fa-stack">
-                    <a href="{{checkAuthUser()['url']}}">
+                    {{--<a href="{{checkAuthUser()['url']}}">--}}
+                    @auth('benevole')
+                    <a href="{{route('BenevoleshowDashboard')}}">
 
-                        <i class="fa fa-user fa-stack-3x" style="font-size:24px; color:#fc8760;"></i>
+                                <i class="fa fa-user fa-stack-3x" style="font-size:24px; color:#fc8760;"></i>
+                    </a>
+                </span>
+                        <li> <a href="{{route('logout')}}"  style="font-size: 15px;color: #fc8760;"><i class="fa fa-sign-out">logout</i></a>
+                    </li>
+                    @endauth
+                    @auth('quarantaine')
+                        <a href="{{route('QuarantaineShowDashboard')}}">
+                                <i class="fa fa-user fa-stack-3x" style="font-size:24px; color:#fc8760;"></i>
 
                     </a>
                 </span>
-        </span>
-            @endif
-             @if(checkAuthUser()==null)
 
-            <span class="nav-item social-icons">
-                <span class="fa-stack">
-                    <a href="{{route('Login')}}">
+            <li> <a href="{{route('logout')}}"  style="font-size: 15px;color: #fc8760;"><i class="fa fa-sign-out">logout</i></a>
+            </li>
+                    @endauth
+                    @auth('autorite')
+                        <a href="{{route('QuarantaineShowDashboard')}}">
+                                <i class="fa fa-user fa-stack-3x" style="font-size:24px; color:#fc8760;"></i>
 
-                        <i class="fa fa-user fa-stack-3x" style="font-size:24px; color:#fc8760;"></i>
-
-                    </a>
+                         </a>
                 </span>
-        </span>
-            @endif
+
+                         <li> <a href="{{route('logout')}}"  style="font-size: 15px;color: #fc8760;"><i class="fa fa-sign-out">logout</i></a>
+                        </li>
+                    @endauth
+
+                </span>
+            {{--@endif--}}
+
 
 
 

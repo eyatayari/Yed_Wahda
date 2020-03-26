@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\course;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class DemandeCourseController extends Controller
 {
@@ -86,18 +88,18 @@ class DemandeCourseController extends Controller
     public function store(Request $request)
     {
        
-        $data =new course;
+        $data =new course();
         $type_course = implode(",", $request->type_course);
         $data->type_course=$type_course;
         
        
 
         $data->description =$request->description;
-        $data->etat ="n'est pas confirmé";
-        $data->id_quarantaine =1;
-       
-        $data->date_demande = date('Y/m/d H:m:s');
-       
+        $data->etat ="non confirmé";
+        $data->id_quarantaine =Auth::guard('quarantaine')->user()->id;
+        
+        $data->date_demande = now()->format('\'Y/m/d H:m:s\'');
+
      
        
      

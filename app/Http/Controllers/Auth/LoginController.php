@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -59,8 +60,8 @@ class LoginController extends Controller
             }
 
         if (Auth::guard('quarantaine')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-    dd(Auth::guard('quarantaine')->user());
-            return redirect()->intended('/quarantaine');
+
+            return redirect()->route('QuarantaineShowDashboard');
         }
 
         if (Auth::guard('autorite')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
@@ -69,5 +70,19 @@ class LoginController extends Controller
         }
             return back()->withInput($request->only('email', 'remember'));
 
+    }
+
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Exception
+     */
+    public function Logout(){
+
+       Auth::logout();
+        Session::flush();
+
+
+        return redirect(route('Login'));
     }
 }

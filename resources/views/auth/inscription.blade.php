@@ -27,71 +27,25 @@
                     <form action="{{route('createQuarantaine')}}" method="post">
                         @csrf
                         <div class="row register-form">
-
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="prenom" placeholder="إسمك" value=""
-                                                                                                                                                                                            />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="cin" placeholder="رقم بطاقة التعريف" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" name="email" placeholder="البريد الإلكتروني" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control"  name="ville" placeholder="المدينة" value="" />
-                            </div>
-                            <div class="form-group">
-                                <div class="maxl">
-                                    <label class="radio inline">
-                                        <input type="radio" name="sexe" value="male" checked>
-                                        <span> رجل </span>
-                                    </label>
-                                    <label class="radio inline">
-                                        <input type="radio" name="sexe" value="female">
-                                        <span>امرأة </span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="nom" placeholder="لقبك" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" minlength="8" maxlength="12" name="num_telephone" class="form-control" placeholder="رقم الهاتف" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" name="password" placeholder="كلمة السر" value="" />
-                            </div>
-                            <div class="form-group">
-
-                                <input type="text" class="form-control" name="cite" placeholder="حيك " value="" />
-                            </div>
-                            <input type="submit" class="btnRegister"  value="قيد"/>
-                        </div>
-                    </div>
-                    </form>
-                </div>
-                <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <h3  class="register-heading">قيد معانا كمتطوع</h3>
-                    <form method="post" action="{{route('createbenevole')}}">
-                        @csrf
-                        <div class="row register-form">
-
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="prenom" placeholder="إسمك" value="{{old('prenom')}}" />
+                                    <input type="text" class="form-control" name="prenom" placeholder="إسمك" value=""
+                                                                                                                                                                                                />
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="cin" placeholder="رقم بطاقة التعريف" value="{{old('cin')}}" />
+                                    <input type="text" class="form-control" name="cin" placeholder="رقم بطاقة التعريف" value="" />
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control" name="email" placeholder="البريد الإلكتروني" value="{{old('email')}}" />
+                                    <input type="email" class="form-control" name="email" placeholder="البريد الإلكتروني" />
                                 </div>
+
                                 <div class="form-group">
-                                    <input type="text" class="form-control"  name="ville" placeholder="المدينة" value="{{old('ville')}}" />
+                                    <select  class="form-control" >
+                                        <option value="">---الولاية---</option>
+                                        @foreach ($gouvernorat_list as $gouvernorat)
+                                            <option value="{{ $gouvernorat->id }}" name="gouvernorat" >{{ $gouvernorat->nom_gouvernorat }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <div class="maxl">
@@ -105,21 +59,84 @@
                                         </label>
                                     </div>
                                 </div>
+
+                            </div>
+                            <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="nom" placeholder="لقبك" value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" minlength="8" maxlength="12" name="num_telephone" class="form-control" placeholder="رقم الهاتف" value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="password" placeholder="كلمة السر" value="" />
+                            </div>
+                                <div class="form-group">
+
+                                    <select name="municipalite" class="form-control" >
+                                        <option value="">---البلدية---</option>
+                                    </select>
+                                </div>
+                            <input type="submit" class="btnRegister"  value="قيد"/>
+                        </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <h3  class="register-heading">قيد معانا كمتطوع</h3>
+                    <form method="post" action="{{route('createBenevole')}}">
+                        @csrf
+
+                        <div class="row register-form">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="prenom" placeholder="إسمك" value=""
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="cin" placeholder="رقم بطاقة التعريف" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="email" placeholder="البريد الإلكتروني" />
+                                </div>
+
+                                <div class="form-group">
+                                    <select name="gouvernorat" class="form-control" >
+                                        <option value="">---الولاية---</option>
+                                        @foreach ($gouvernorat_list as $gouvernorat)
+                                            <option value="{{ $gouvernorat->id }}">{{ $gouvernorat->nom_gouvernorat }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <div class="maxl">
+                                        <label class="radio inline">
+                                            <input type="radio" name="sexe" value="male" checked>
+                                            <span> رجل </span>
+                                        </label>
+                                        <label class="radio inline">
+                                            <input type="radio" name="sexe" value="female">
+                                            <span>امرأة </span>
+                                        </label>
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="nom" placeholder="لقبك" value="{{old('nom')}}" />
+                                    <input type="text" class="form-control" name="nom" placeholder="لقبك" value="" />
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" minlength="8" maxlength="12" name="num_telephone" class="form-control" placeholder="رقم الهاتف" value="{{old('num_telephone')}}" />
+                                    <input type="text" minlength="8" maxlength="12" name="num_telephone" class="form-control" placeholder="رقم الهاتف" value="" />
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control" name="password" placeholder="كلمة السر" value="" />
                                 </div>
-
                                 <div class="form-group">
 
-                                    <input type="text" class="form-control" name="cite" placeholder="حيك " value="" />
+                                    <select name="municipalite" class="form-control" >
+                                        <option value="">---البلدية---</option>
+                                    </select>
                                 </div>
                                 <input type="submit" class="btnRegister"  value="قيد"/>
                             </div>
@@ -129,6 +146,6 @@
             </div>
         </div>
     </div>
-
 </div>
     @endsection
+

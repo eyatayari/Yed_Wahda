@@ -12,6 +12,9 @@ class QuarantaineController extends Controller
         $quarantaines = Quarantaine::orderBy('cin')->paginate(10);
         return view('quarantaine.index',compact('quarantaines'));
     }
+    public function QuarantaineShowDashboard(){
+        return view('quarantaine.dashboard');
+    }
     /**
      * Show the form for creating a new resource.
      *

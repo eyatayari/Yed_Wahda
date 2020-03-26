@@ -406,7 +406,7 @@ section
 	font-weight: 600;
 	text-transform: uppercase;
 	color: #0b1033;
-	letter-spacing: 3.5px;
+	letter-spacing: 0px;
 	height: 100%;
 	display: -webkit-box;
 	display: -moz-box;
@@ -1339,5 +1339,7 @@ section
 	margin-bottom: 0px;
 }
 .arabic{
-	font-family:  Droid Arabic Naskh , Helvetica, sans-serif;!important;
+
+	font-size: 20px;!important;
+
 }

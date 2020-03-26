@@ -20,8 +20,8 @@ class CreateQuarantainesTable extends Migration
             $table->string('prenom');
             $table->string('email');
             $table->string('password');
-            $table->string('ville');
-            $table->string('cite');
+            $table->string('gouvernorat');
+            $table->string('municipalite');
             $table->string('sexe');
             $table->string('num_telephone');
             $table->timestamps();

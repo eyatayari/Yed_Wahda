@@ -18,10 +18,11 @@ class CreateBenevolesTable extends Migration
             $table->integer('cin');
             $table->string('nom');
             $table->string('prenom');
-            $table->string('cite');
+            $table->string('municipalite');
             $table->string('email');
             $table->string('password');
-            $table->string('ville');
+            $table->string('gouvernorat');
+            $table->string('isdoctor')->default("false")->nullable();
             $table->integer('num_telephone');
             $table->string('sexe');
             $table->timestamps();

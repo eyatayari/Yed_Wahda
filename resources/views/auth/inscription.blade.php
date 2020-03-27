@@ -29,8 +29,7 @@
                         <div class="row register-form">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="prenom" placeholder="إسمك" value=""
-                                                                                                                                                                                                />
+                                    <input type="text" class="form-control" name="prenom" placeholder="إسمك" value=""/>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="cin" placeholder="رقم بطاقة التعريف" value="" />
@@ -40,10 +39,10 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <select  class="form-control" >
+                                    <select id="gov-1" class="form-control" name="gouvernorat" onchange="getMunicipalite(1)">
                                         <option value="">---الولاية---</option>
                                         @foreach ($gouvernorat_list as $gouvernorat)
-                                            <option value="{{ $gouvernorat->id }}" name="gouvernorat" >{{ $gouvernorat->nom_gouvernorat }}</option>
+                                            <option value="{{ $gouvernorat->nom_gouvernorat }}" name="gouvernorat" >{{ $gouvernorat->nom_gouvernorat }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -72,8 +71,7 @@
                                 <input type="password" class="form-control" name="password" placeholder="كلمة السر" value="" />
                             </div>
                                 <div class="form-group">
-
-                                    <select name="municipalite" class="form-control" >
+                                    <select id="muni-1" name="municipalite" class="form-control" >
                                         <option value="">---البلدية---</option>
                                     </select>
                                 </div>
@@ -101,10 +99,10 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <select name="gouvernorat" class="form-control" >
+                                    <select id="gov-2" class="form-control" onchange="getMunicipalite(2)">
                                         <option value="">---الولاية---</option>
                                         @foreach ($gouvernorat_list as $gouvernorat)
-                                            <option value="{{ $gouvernorat->id }}">{{ $gouvernorat->nom_gouvernorat }}</option>
+                                            <option value="{{ $gouvernorat->nom_gouvernorat }}" name="gouvernorat" >{{ $gouvernorat->nom_gouvernorat }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -134,9 +132,22 @@
                                 </div>
                                 <div class="form-group">
 
-                                    <select name="municipalite" class="form-control" >
+                                    <select id="muni-2" name="municipalite" class="form-control" >
                                         <option value="">---البلدية---</option>
                                     </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>إنت طبيب؟</label>
+                                    <div class="maxl">
+                                        <label class="radio inline">
+                                            <input type="radio" name="isdoctor" value="true" >
+                                            <span> أي </span>
+                                        </label>
+                                        <label class="radio inline">
+                                            <input type="radio" name="isdoctor" value="false">
+                                            <span>لا </span>
+                                        </label>
+                                    </div>
                                 </div>
                                 <input type="submit" class="btnRegister"  value="قيد"/>
                             </div>
@@ -147,5 +158,31 @@
         </div>
     </div>
 </div>
-    @endsection
+@endsection
+@section('script')
+    <script type="text/javascript">
+        function getMunicipalite(id) {
+            var state = $('select[id="gov-' + id + '"]').val();
+            if (state) {
+                $.ajax({
+                    url: 'get/municipalite/list/' + state,
+                    type: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                        if(data.data !== null)
+                        $('select[id="muni-' + id + '"]').empty();
+                        $.each(data.data, function (key, value) {
+                            $('select[id="muni-'+ id +'"]').append('<option value="' + value.nom_municipalite + '">' + value.nom_municipalite + '</option>');
+                        });
+                    },
+                    error: function () {
+                        $('select[id="muni-' + id + '"]').empty();
+                    }
+                });
+            } else {
+                $('select[id="muni-' + id + '"]').empty();
+            }
+        }
+    </script>
+@endsection
 

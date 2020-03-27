@@ -41,3 +41,9 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/Login.css')}}">
 
+
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{asset('css/utilDashboard.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('css/Dashboard.css')}}">
+        <!--===============================================================================================-->
+    </head>

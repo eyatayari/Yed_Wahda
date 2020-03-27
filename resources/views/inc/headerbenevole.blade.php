@@ -4,7 +4,7 @@
     <!-- Logo -->
     <div class="logo_container mr-auto">
         <div class="logo">
-            <a href="#">يد وحدة</a>
+            <a href="{{route('BenevoleshowDashboard')}}" >الرئيسيةة</a>
         </div>
     </div>
 
@@ -16,21 +16,18 @@
             <li class="active arabic" lang="ar" ><a href="{{route('BenevoleshowDashboard')}}" >الرئيسية</a></li>
          
             <li ><a href="{{route('BenevoleshowDashboard')}}#demandeconfirmé"> الناس الي عاونتهم</a></li> 
-        
-            <a href="{{ route('logout') }}">
-                                           
-                                           
-                                <i class="fa fa-sign-out p-2" style="font-size:24px; color:#fc8760;"></i>
+            @auth(('benevole'))
+                <li><a href="{{route('logout')}}" style="font-size: 15px;color: #fc8760;"><i class="fa fa-sign-out">logout</i></a></li>
 
-                                </a>
 
+            @endauth
 
          
 
 </ul></nav>
          
 
-            @if (($k>0 )&&(($c->ville)== (Auth::guard('benevole')->user()->ville)))<div class="p-5">  <div> <li><a href="{{route('BenevoleshowDashboard')}}#demandenonconfirmé"><div class="my-btn">
+            @if (($nombrenonconfirmecourse>0 )&&(($course->gouvernorat)== (Auth::guard('benevole')->user()->gouvernorat)))<div class="p-5">  <div> <li><a href="{{route('BenevoleshowDashboard')}}#demandenonconfirmé"><div class="my-btn">
 	<div class="my-btn-border"></div>
 	<i class="fa fa-bell btn-bell"></i>
 </div></a></li></div></div>@endif

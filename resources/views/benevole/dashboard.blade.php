@@ -34,7 +34,7 @@
     <div  id="demandeconfirmé">
         <!-- <div class="contact_background parallax-window" data-parallax="scroll" data-speed="0.7" data-image-src="images/contact_background.jpg"></div> -->
         <div class="contact_background prlx" style=""></div>
-        <div class="contact_shapes"><img src="images/contact_shape.png" alt=""></div>
+
         <div class="contact_content">
 
                 <div class="container">
@@ -54,7 +54,7 @@
                        
                        
                        
-                        <th><center> اسم صاحب الطلب</center></th>
+                        <th> اسم صاحب الطلب</th>
                         <th><center>لقب صاحب الطلب</center> </th>
                         <th><center>حي صاحب الطلب </center></th>
                        
@@ -69,14 +69,14 @@
                    
                       @foreach($m as $m)
                   
-                      @if((($m->ville)==(Auth::guard('benevole')->user()->ville))&&(($m->etat)=="confirmé")&&(($m->id_benevole)==(Auth::guard('benevole')->user()->id)))
+                      @if((($m->municipalite)==(Auth::guard('benevole')->user()->municipalite))&&(($m->etat)=="confirmé")&&(($m->id_benevole)==(Auth::guard('benevole')->user()->id)))
                         <tr>
                           
                          
                           
                           <td><center>{{$m->prenom}}</center></td>
                           <td><center>{{$m->nom}}</center></td>
-                          <td><center>{{$m->cite}}<center></td>
+                          <td><center>{{$m->municipalite}}<center></td>
                         
                           <td><center>{{$m->type_course}}</center></td>
                          
@@ -87,13 +87,8 @@
                           <td>
                          <a href="">
                          <button type="button" class="btn btn-rounded  py-2 m-0 px-3 mr-3 " style=" background-color:#ff4200;"><p  style="color:#ffffff;"> احكي معاه</p></button>
-                   
-                
-                   
-                   
-                                    
-                
-                         </td>
+                         </a>
+                          </td>
                        
                         </tr>
                         @endif
@@ -109,7 +104,7 @@
 
 
       <!-- demandenonconfirmé -->
-      @if ($k>0 )
+      @if ($nombrenonconfirmecourse>0 )
      <div class="contact prlx_parent" id="demandenonconfirmé">
         <!-- <div class="contact_background parallax-window" data-parallax="scroll" data-speed="0.7" data-image-src="images/contact_background.jpg"></div> -->
         <div class="contact_background prlx" style=""></div>
@@ -148,9 +143,9 @@
                       </thead>
                       <tbody>
                    
-                      @foreach($c as $c)
+                      @foreach($courses as $course)
                   
-                      @if((($c->ville)== (Auth::guard('benevole')->user()->ville))&&(($c->etat)=="non confirmé"))
+                      @if((($course->gouvernorat)== (Auth::guard('benevole')->user()->gouvernorat))&&(($course->etat)=="non confirmé"))
                         <tr>
                          
                          
@@ -158,14 +153,14 @@
                           
                         <td><center>{{$m->prenom}}</center></td>
                           <td><center>{{$m->nom}}</center></td>
-                          <td><center>{{$m->cite}}<center></td>
+                          <td><center>{{$m->gouvernorat}}<center></td>
                         
                           <td><center>{{$m->type_course}}</center></td>
                           <td><center>{{$m->description}}</center></td>
                           <td><center>{{$m->date_demande}}</center></td>
                           <td><center>{{$m->num_telephone}}</center></td>
                           <td>
-                         <a href="/confirme/{{$c->id}}/{{Auth::guard('benevole')->user()->id}}">
+                         <a href="/confirme/{{$course->id}}/{{Auth::guard('benevole')->user()->id}}">
                          <button type="button" class="btn btn-rounded py-2 m-0 px-3 mr-3 " style=" background-color:#ff4200;"><p  style="color:#ffffff;">وافق تعاون</p></button>
                    
                 

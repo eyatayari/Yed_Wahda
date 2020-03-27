@@ -1,9 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Benevole;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Quarantaine;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 class QuarantaineController extends Controller
 {
 
@@ -12,9 +16,7 @@ class QuarantaineController extends Controller
         $quarantaines = Quarantaine::orderBy('cin')->paginate(10);
         return view('quarantaine.index',compact('quarantaines'));
     }
-    public function QuarantaineShowDashboard(){
-        return view('quarantaine.dashboard');
-    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -64,5 +66,17 @@ class QuarantaineController extends Controller
         return redirect()->back()->with('successMsg','Quarantaine Successfully Delete');
     }
 
+public function QuarantaineShowDashboard(){
+        $quarantaine=Auth::guard('quarantaine')->user();
+    //dd($quarantaine);
+//        $doctors = Benevole::all()->where('gouvernorat','=',$quarantaine->gouvernorat)
+//            ->where('municipalite','=',$quarantaine->municipalite)
+//        ->where('isdoctor',"=","true");
+    $doctors=DB::table('benevoles')->where('isdoctor',"=",'true' )
+        ->where('gouvernorat',"=",$quarantaine->gouvernorat)->get();
 
+
+        return view('quarantaine.dashboard',compact('doctors'));
+
+}
 }

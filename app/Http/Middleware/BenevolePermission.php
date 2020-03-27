@@ -18,29 +18,11 @@ class BenevolePermission
     {
         if(!Auth::guard('benevole')->check()){
 
-
+dd('eya');
            return abort(403);
 
         }
         return $next($request);
-  //      else if(!Auth::guard('quarantaine')->check()){
-//
-//            return abort(403);
-//
-//        }
-//        else if(!Auth::guard('autorite')->check()){
-//
-//            return abort(403);
-//
-//        }
-//        return $next($request);
-//   }
-//    public function handle($request, Closure $next ,$roles)
-//   {
-//        if (! $request->user()->hasAnyRole($roles)) {
-//        abort(403);
-//        }
-//
 
 }
 

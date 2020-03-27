@@ -98,13 +98,7 @@
         </div>
     </div>
 
-    <div class="home_social_container d-flex flex-row justify-content-end align-items-center">
-        <ul class="home_social">
-            <li><a href="#"><i class="fab fa-facebook-f trans_300"></i></a></li>
-            <li><a href="#"><i class="fab fa-twitter trans_300"></i></a></li>
-            <li><a href="#"><i class="fab fa-linkedin-in trans_300"></i></a></li>
-        </ul>
-    </div>
+
 
     <!-- Features -->
 
@@ -152,14 +146,7 @@
         </div>
     </div>
 
-    <!-- About -->
 
-   
-
-    <!-- Testimonials -->
-
-
-    <!-- Services -->
 
     <div class="services prlx_parent contact" id="autorisationsortie" >
         <!-- artist: https://unsplash.com/@nativemello -->
@@ -231,137 +218,60 @@
         </div>
     </div>
 
-    <!-- Clients -->
 
-
-
-    <!-- Contact -->
-
-    <div class="contact prlx_parent" id="contact">
-        <!-- <div class="contact_background parallax-window" data-parallax="scroll" data-speed="0.7" data-image-src="images/contact_background.jpg"></div> -->
-        <div class="contact_background prlx" style="background-image: url(images/contact_background.jpg);"></div>
-        <div class="contact_shapes"><img src="images/contact_shape.png" alt=""></div>
-        <div class="contact_content">
-
-                <div class="container">
-
-
-
-                <div class="row">
-                    <div class=" arabic col-lg-6 offset-lg-3 text-center section_title ">
-                        <h2>بش تكلمنا</h2>
-                    </div>
-                </div>
-                    <div class="row">
-
-            <div class="col-lg-8">
-                <div class="contact_main_content">
-
-                    <div class="contact_subtitle"></div>
-
-                    <!-- Contact Us Form -->
-                    <div class="contact_form_container">
-                        <form id="reply_form" action="post">
-                            <div>
-                                <input id="contact_form_name" class="input_field contact_form_name" type="text" placeholder="الإسم" required="required" data-error="Name is required.">
-                                <input id="contact_form_email" class="input_field contact_form_email" type="email" placeholder="البريد الإلكتروني" required="required" data-error="Valid email is required.">
-                                <input id="contact_form_subject" class="input_field contact_form_subject" type="text" placeholder="الموضوع" required="required" data-error="Subject is required.">
-                                <textarea id="contact_form_message" class="text_field contact_form_message" name="message"  placeholder="المحتوى" rows="4" required data-error="Please, write us a message."></textarea>
-                            </div>
-                            <div>
-                                <button id="contact_form_submit" type="submit" class="arabic contact_submit_btn trans_300" value="Submit">
-                                    ابعث<img src="images/arrow_right.svg" alt="">
-                                </button>
-                            </div>
-
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Sidebar -->
-            <div class="col-lg-4">
-                <div class="contact_sidebar">
-
-                    <!-- Contact Info -->
-                    <div class="sidebar_section">
-                        <div class="sidebar_contact_info">
-                            <div class="sidebar_title">contact info</div>
-                            <ul>
-                                <li>Rosia Road , No234/56
-                                    <br>
-                                    Gibraltar , UK</li>
-                                <li>contact@cocoontemplate.com</li>
-                                <li>+5463 834 53 2245</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
 
     <br><br>
 
      <!--Element -->
-     <div class="contact prlx_parent" id="element">
+    <div class="contact prlx_parent wow fadeIn" id="facts" style="background: url(/images/facts-bg-2.jpg) center top no-repeat fixed  ;;
+    background-size: cover">
         <!-- <div class="contact_background parallax-window" data-parallax="scroll" data-speed="0.7" data-image-src="images/contact_background.jpg"></div> -->
-        <div class="contact_background prlx" style="background-image: url(images/contact_background.jpg);"></div>
-        <div class="contact_shapes"><img src="images/contact_shape.png" alt=""></div>
+
+        <div class="contact_shapes" ></div>
         <div class="contact_content">
 
-                <div class="container">
+            <div class="container">
 
 
 
                 <div class="row">
-                    <div class=" arabic col-lg-6 offset-lg-3 text-center section_title ">
-                        <h2>بش  نعاونوك</h2>
-                    </div>
-                </div>
-                    <div class="row">
 
-            <div class="col-lg-8">
-                <div class="contact_main_content">
+                    <div class="col-3"></div><div class="col-9"> <div class="col-lg-9">
+                            <div class="contact_main_content">
 
-                    <div class="contact_subtitle"></div>
+                                <div class="contact_subtitle"></div>
 
-                    <!-- Contact Us Form -->
-                    <div class="contact_form_container">
-                        <form id="reply_form" method="POST"  action="{{route('storecourse')}}" onsubmit="return checkForm(this);">
-                        {{ csrf_field() }}
-                            <div>
-                              
-                            <div class="form-group">
-                      
-                      <label class="label"><b> شناوا تستحق / quelles sont  vos besoins : </b></label>
-                      <div class="group">
-  <input type="checkbox" value="médicaments"  id="médicaments" class="input_field"  name='type_course[]'> <label for="médicaments">ادوية /  médicaments</label><br>
-  <input type="checkbox" value="nourriture" id="nourriture" name='type_course[]' > <label for="nourriture">طعام  /  nourriture</label><br>
-  <input type="checkbox" value="besoins pour la maison" id="des besoins pour la maison" name='type_course[]'> <label for="des besoins pour la maison">احتياجات منزلية  /  des besoins de la maison :</label><br>
-  <input type="checkbox" value="matériaux de stérilisation" id="matériaux de stérilisation" name='type_course[]'> <label for="matériaux de stérilisation">  مواد تعقيم/ des matériaux de stérilisation :</label><br>
-  <input type="checkbox" value="autre" id="autre" name='type_course[]'> <label for="autre">حاجه اخرى  / autre</label><br> 
- 
-</div>
-                    
-                   </div>
-                                <textarea id="contact_form_message" class="text_field contact_form_message" name="description"  placeholder="المحتوى" rows="4" required data-error="Please, write us a message."></textarea>
+                                <!-- Contact Us Form -->
+                                <div class="contact_form_container">
+                                    <form id="reply_form" method="POST"  action="{{route('storecourse')}}" onsubmit="return checkForm(this);">
+                                        {{ csrf_field() }}
+                                        <div>
+
+                                            <div class="form-group">
+
+                                                <center style="font-size:24px;"><b> اختار الي تستحقو في قضيتك لدار  </b></center><br>
+                                                <div class="group">
+                                                    <input type="checkbox" value="médicaments"  id="médicaments" class="input_field"  name='type_course[]'> <label for="médicaments">ادوية </label><br>
+                                                    <input type="checkbox" value="nourriture" id="nourriture" name='type_course[]' > <label for="nourriture">طعام </label><br>
+                                                    <input type="checkbox" value="besoins pour la maison" id="des besoins pour la maison" name='type_course[]'> <label for="des besoins pour la maison">احتياجات منزلية </label><br>
+                                                    <input type="checkbox" value="matériaux de stérilisation" id="matériaux de stérilisation" name='type_course[]'> <label for="matériaux de stérilisation">  مواد تعقيم</label><br>
+                                                    <br>
+
+                                                </div>
+
+                                            </div>
+                                            <textarea id="contact_form_message" class="text_field contact_form_message" name="description"  placeholder="شناوا تستحق بالتفصيل" rows="4" required data-error="Please, write us a message."></textarea>
+                                        </div>
+                                        <div>
+                                            <center>  <button id="contact_form_submit"  class="arabic contact_submit_btn trans_300" type="submit"  value="Submit">
+                                                    ابعث<img src="images/arrow_right.svg" alt=""></center>
+                                            </button>
+                                        </div>
+
+                                    </form>
+                                </div>
+
                             </div>
-                            <div>
-                                <button id="contact_form_submit" type="submit" class="arabic contact_submit_btn trans_300" value="Submit">
-                                    ابعث<img src="images/arrow_right.svg" alt="">
-                                </button>
-                            </div>
+                        </div>
 
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-        
 @endsection

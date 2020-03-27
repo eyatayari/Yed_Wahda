@@ -16,12 +16,12 @@ class CreateAutorisationsTable extends Migration
         Schema::create('autorisations', function (Blueprint $table) {
             $table->Increments('id');
             $table->string('cause');
-            $table->string('description');
-            $table->date('date_demande');
+            $table->string('autre_cause')->nullable();
+            $table->datetime('date_demande');
             $table->string('etat');
 
             $table->integer('id_quarantaine')->unsigned();
-            $table->integer('id_autorite')->unsigned();
+            $table->integer('id_autorite')->unsigned()->nullable();
 
             $table->timestamps();
         });

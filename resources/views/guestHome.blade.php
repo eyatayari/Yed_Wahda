@@ -88,29 +88,29 @@
       <div class="carousel-inner" role="listbox">
 
         <div class="carousel-item active">
-          <div class="carousel-background"><img src="{{asset('images/1.jpg')}}" alt=""></div>
+          <div class="carousel-background"><img src="{{asset('images/1.png')}}" alt=""></div>
 
         </div>
 
         <div class="carousel-item">
-          <div class="carousel-background"><img src="{{asset('images/2.jpg')}}" alt=""></div>
+          <div class="carousel-background"><img src="{{asset('images/2.png')}}" alt=""></div>
 
         </div>
 
         <div class="carousel-item">
-          <div class="carousel-background"><img src="{{asset('images/3.jpg')}}" alt=""></div>
+          <div class="carousel-background"><img src="{{asset('images/3.png')}}" alt=""></div>
           <div class="carousel-container">
 
           </div>
         </div>
 
         <div class="carousel-item">
-          <div class="carousel-background"><img src="{{asset('images/2.jpg')}}" alt=""></div>
+          <div class="carousel-background"><img src="{{asset('images/4.png')}}" alt=""></div>
 
         </div>
 
         <div class="carousel-item">
-          <div class="carousel-background"><img src="{{asset('images/4.jpg')}}" alt=""></div>
+          <div class="carousel-background"><img src="{{asset('images/5.png')}}" alt=""></div>
 
         </div>
 
@@ -210,7 +210,8 @@
 
 
       <div class="form">
-        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+        <form action="{{route('sendEmail')}}" method="post" role="form" class="php-email-form">
+          @csrf
           <div class="form-row">
             <div class="form-group col-md-6">
               <input type="text" name="name" class="form-control" id="name" placeholder="إسمك" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />

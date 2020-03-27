@@ -3,7 +3,7 @@
 <body>
 
 <div class="super_container">
-    @include('inc.header')
+    @include('inc.HeaderHomeGuest')
 
     @yield('content')
 

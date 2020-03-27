@@ -1,14 +1,9 @@
-
 @include('inc.head')
 <body>
-
-<div class="super_container">
-@include('inc.header')
-
+    <div class="super_container">
+    @include('inc.header')
         @yield('content')
-
-</div>
-</body>
+    </div>
+@yield('script')
 @include('inc.scripts')
-
-
+</body>

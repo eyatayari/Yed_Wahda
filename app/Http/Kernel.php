@@ -63,7 +63,9 @@ class Kernel extends HttpKernel
 
         'CheckAuthLogged' => \App\Http\Middleware\CheckAuthLogged::class,
         'BenevolePermission' => \App\Http\Middleware\BenevolePermission::class,
+        'AutoritePermission' => \App\Http\Middleware\autoritePermission::class,
 
+        'QuarantainePermission' => \App\Http\Middleware\quarantainePermission::class,
 
     ];
 

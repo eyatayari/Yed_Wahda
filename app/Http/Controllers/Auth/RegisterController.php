@@ -53,12 +53,18 @@ class RegisterController extends Controller
         return view('auth.inscription')->with('gouvernorat_list', $country_list);
     }
 
-    public function myformAjax($id)
+    public function getMunicipalityApi($name)
     {
         $cities = DB::table("municipalites")
-            ->where("gouvernorat_id",$id)
-            ->get();
-        return json_decode($cities);
+            ->where(
+                "gouvernorat_id",
+                DB::table('gouvernorats')->where('nom_gouvernorat', $name)->first()->id
+            )->get();
+        if(isset($cities)){
+            return response()->json(['status' => 200, 'data' => $cities]);
+        }else{
+            return response()->json(['status' => 300]);
+        }
     }
 
 
@@ -120,18 +126,35 @@ class RegisterController extends Controller
 
     public function createQuarantaine(Request $request)
     {
+       // dd($request['gouvernorat']);
 //        $this->validator($request->all())->validate();
-        $benevole = Quarantaine::create([
-            'nom' => $request['nom'],
-            'prenom' => $request['prenom'],
-            'cin' => $request['cin'],
-            'municipalite' => $request['municipalite'],
-            'gouvernorat' => $request['gouvernorat'],
-            'sexe' => $request['sexe'],
-            'num_telephone' => $request['num_telephone'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-        ]);
+        $quarantaine = new Quarantaine();
+        $quarantaine->nom = $request['nom'];
+        $quarantaine->prenom = $request['prenom'];
+        $quarantaine->cin = $request['cin'];
+        $quarantaine->municipalite = $request['municipalite'];
+        $quarantaine->gouvernorat = $request['gouvernorat'];
+        $quarantaine->sexe = $request['sexe'];
+        $quarantaine->num_telephone = $request['num_telephone'];
+        $quarantaine->email = $request['email'];
+        $quarantaine->password = Hash::make($request['password']);
+        //dd($quarantaine);
+        $quarantaine->save();
+//        $benevole = Quarantaine::create([
+//            'nom' => $request['nom'],
+//            'prenom' => $request['prenom'],
+//            'cin' => $request['cin'],
+//
+//            'gouvernorat' => $request['gouvernorat'],
+//            'municipalite' => $request['municipalite'],
+//
+//            'sexe' => $request['sexe'],
+//            'num_telephone' => $request['num_telephone'],
+//            'email' => $request['email'],
+//            'password' => Hash::make($request['password']),
+//
+//        ]);
+//        dd($benevole);
 
         return redirect('/login');
 

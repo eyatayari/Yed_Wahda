@@ -1,4 +1,3 @@
-
 <header class="header d-flex flex-row justify-content-end align-items-center">
 
     <!-- Logo -->
@@ -9,61 +8,55 @@
     </div>
 
     <!-- Main Navigation -->
-    <nav class="main_nav justify-self-end">
+    <span class="main_nav justify-self-end">
         <span class="nav_items">
-            <li class="active arabic" lang="ar" ><a href="{{route('home')}}" >الرئيسية</a></li>
-            <li class="arabic"><a href="{{route('home')}}#autorisationsortie">طلب خروج</a></li>
-            <li><a href="{{route('home')}}#element">بش تطلب قضيتك لدار</a></li>
+            <li class="active arabic" lang="ar"><a href="{{route('home')}}">الرئيسية</a></li>
+            @auth('quarantaine')
 
-            <li class="arabic"><a href="#contact"><span>إتصل بنا</span></a></li>
+            <li class="arabic"><a href="{{route('home')}}">طلب خروج</a></li>
+            <li><a href="{{route('home')}}#course">بش تطلب قضيتك لدار</a></li>
+            @endauth
+
 
 
             {{--@if (checkAuthUser()!=null)--}}
 
-                <span class="nav-item social-icons">
-                <span class="fa-stack">
+            <span class="nav-item social-icons">
+
                     {{--<a href="{{checkAuthUser()['url']}}">--}}
-                    @auth('benevole')
-                    <a href="{{route('BenevoleshowDashboard')}}">
-
-                                <i class="fa fa-user fa-stack-3x" style="font-size:24px; color:#fc8760;"></i>
-                    </a>
+                @auth('benevole')
+                <span class="fa-stack">
+                    <a href="{{route('BenevoleshowDashboard')}}"><i class="fa fa-user fa-stack-3x" style="font-size:24px; color:#fc8760;"></i></a>
                 </span>
-                        <li> <a href="{{route('logout')}}"  style="font-size: 15px;color: #fc8760;"><i class="fa fa-sign-out">logout</i></a>
-                    </li>
-                    @endauth
-                    @auth('quarantaine')
-                        <a href="{{route('QuarantaineShowDashboard')}}">
-                                <i class="fa fa-user fa-stack-3x" style="font-size:24px; color:#fc8760;"></i>
+                <li><a href="{{route('logout')}}" style="font-size: 15px;color: #fc8760;"><i class="fa fa-sign-out">logout</i></a></li>
 
-                    </a>
+                @endauth
+                @auth('quarantaine')
+                <span class="fa-stack">
+                    <a href="{{route('QuarantaineShowDashboard')}}"><i class="fa fa-user fa-stack-3x" style="font-size:24px; color:#fc8760;"></i></a>
                 </span>
+                <li> <a href="{{route('logout')}}" style="font-size: 15px;color: #fc8760;"><i class="fa fa-sign-out">logout</i></a></li>
+                @endauth
 
-            <li> <a href="{{route('logout')}}"  style="font-size: 15px;color: #fc8760;"><i class="fa fa-sign-out">logout</i></a>
-            </li>
-                    @endauth
-                    @auth('autorite')
-                        <a href="{{route('QuarantaineShowDashboard')}}">
-                                <i class="fa fa-user fa-stack-3x" style="font-size:24px; color:#fc8760;"></i>
-
-                         </a>
+                @auth('autorite')
+                <span class="fa-stack">
+                    <a href="{{route('QuarantaineShowDashboard')}}"><i class="fa fa-user fa-stack-3x" style="font-size:24px; color:#fc8760;"></i></a>
                 </span>
+               <li><a href="{{route('logout')}}" style="font-size: 15px;color: #fc8760;"><i class="fa fa-sign-out">logout</i></a></li>
+                @endauth
 
-                         <li> <a href="{{route('logout')}}"  style="font-size: 15px;color: #fc8760;"><i class="fa fa-sign-out">logout</i></a>
-                        </li>
-                    @endauth
-
+                @guest('benevole')
+                    @guest('quarantaine')
+                        @guest('autorite')
+                <span class="fa-stack">
+                    <a href="{{route('register')}}"><i class="fa fa-user fa-stack-3x" style="font-size:24px; color:#fc8760;"></i></a>
                 </span>
-            {{--@endif--}}
-
-
-
-
-
-
-        </ul>
-
-    </nav>
+                        @endguest
+                    @endguest
+                @endguest
+            </span>
+        </span>
+    </span>
 
     <!-- Hamburger
     <div class="hamburger_container">

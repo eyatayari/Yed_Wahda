@@ -60,12 +60,17 @@ class DemandeCourseController extends Controller
         $data->etat = "non confirmé";
         $data->id_quarantaine = Auth::guard('quarantaine')->user()->id;
 
+        $data->description =$request->description;
+        $data->etat ="non confirmé";
+        $data->id_quarantaine =Auth::guard('quarantaine')->user()->id;
+        
+        $data->date_demande = now()->format('Y/m/d H:m:s');
 
 
 
         $data->date_demande = now()->format('Y/m/d H:m:s');
         $data->save();
-        return redirect(route('home'));
+            return redirect(route('home'));
       
        
       
